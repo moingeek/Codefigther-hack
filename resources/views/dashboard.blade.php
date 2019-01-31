@@ -211,10 +211,10 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Applied Scholarship</a>
+                  <a class="nav-link" href="applied-scho">Applied Scholarship</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Searched Scholarship</a>
+                  <a class="nav-link" href="#">Searched Scholarship</a>
                 </li>
               </ul>
             </div>
@@ -282,19 +282,19 @@
                 <div class="card-body">
                   <h5 class="card-title mb-4">Scholarships for you</h5>
                   <div class="fluid-container">
+                    @foreach ($type as $t)
+                        
+                    
                     <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
                       <div class="col-md-1">
-                        <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face1.jpg" alt="profile image">
                       </div>
                       <div class="ticket-details col-md-9">
                         <div class="d-flex">
                           <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Government: </p>
                           <!-- <p class="text-primary mr-1 mb-0">[#23047]</p> -->
-                          <p class="mb-0 ellipsis">Minority Scholarship Portal.</p>
+                          <p class="mb-0 ellipsis">{{$t->name_scholarship}}</p>
                         </div>
-                        <p class="text-gray ellipsis mb-2">Students belonging to notified minority communities viz. Muslim,
-                          Christian, Sikh, Buddhist, Jain, Parsi (Zoroastrian) studying in India only and
-                          fulfilling the Scheme guidelines are eligible to apply for these scholarships. 
+                        <p class="text-gray ellipsis mb-2">{{$t->eligibilty}} 
                         </p>
                         <div class="row text-gray d-md-flex d-none">
                           <div class="col-4 d-flex">
@@ -316,7 +316,7 @@
                           <div class="dropdown-menu">
                             <!-- <a class="dropdown-item" href="#">
                               <i class="fa fa-reply fa-fw"></i>Quick reply</a> -->
-                              <a class="dropdown-item" href="#">
+                              <a class="dropdown-item" href="apply-scho">
                                 <i class="fa fa-reply fa-fw"></i>Apply Scholarship</a>
                               <a class="dropdown-item btn-copy" href="#">
                               <i class="fa fa-share fa-fw"></i>Share</a>
@@ -329,7 +329,7 @@
                         </div>
                       </div>
                     </div>
-                    
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -340,26 +340,26 @@
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
+                    
                     <h5 class="card-title mb-4">All Scholarships</h5>
                     <div class="fluid-container">
+                        @foreach($data as $d)
                       <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
                         <div class="col-md-1">
-                          <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face1.jpg" alt="profile image">
+                          {{-- <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face1.jpg" alt="profile image"> --}}
                         </div>
                         <div class="ticket-details col-md-9">
                           <div class="d-flex">
                             <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Government: </p>
                             <!-- <p class="text-primary mr-1 mb-0">[#23047]</p> -->
-                            <p class="mb-0 ellipsis">Minority Scholarship Portal.</p>
+                            <p class="mb-0 ellipsis">{{$d->name_scholarship}}</p>
                           </div>
-                          <p class="text-gray ellipsis mb-2">Students belonging to notified minority communities viz. Muslim,
-                            Christian, Sikh, Buddhist, Jain, Parsi (Zoroastrian) studying in India only and
-                            fulfilling the Scheme guidelines are eligible to apply for these scholarships. 
+                          <p class="text-gray ellipsis mb-2">{{$d->eligibilty}} 
                           </p>
                           <div class="row text-gray d-md-flex d-none">
                             <div class="col-4 d-flex">
-                              <small class="mb-0 mr-2 text-muted text-muted">Last responded :</small>
-                              <small class="Last-responded mr-2 mb-0 text-muted text-muted">3 hours ago</small>
+                            <small class="mb-0 mr-2 text-muted text-muted">{{$d->start_date}}</small>
+                            <small class="Last-responded mr-2 mb-0 text-muted text-muted">{{$d->end_date}}</small>
                             </div>
                             <div class="col-4 d-flex">
                               <small class="mb-0 mr-2 text-muted text-muted">Due in :</small>
@@ -376,7 +376,7 @@
                             <div class="dropdown-menu">
                               <!-- <a class="dropdown-item" href="#">
                                 <i class="fa fa-reply fa-fw"></i>Quick reply</a> -->
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="apply-scho">
                                   <i class="fa fa-reply fa-fw"></i>Apply Scholarship</a>
                                 <a class="dropdown-item btn-copy" href="#">
                                 <i class="fa fa-share fa-fw"></i>Share</a>
@@ -389,7 +389,7 @@
                           </div>
                         </div>
                       </div>
-                      
+                      @endforeach
                     </div>
                   </div>
                 </div>
