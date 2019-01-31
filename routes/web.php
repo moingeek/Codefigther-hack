@@ -24,3 +24,5 @@ Route::view('/dashboard','dashboard');
 Route::view('/personal-full','personal');
 Route::post('personal-full','PersonalDetails@fulldetails')->name('full');
 Route::view('/doc-repo','docrepo');
+Route::view('/edu-details','edu_details');
+Route::post('/edu-details','PersonalDetails@edudetails')->name('edu');

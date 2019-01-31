@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use App\personal_details;
+use App\education_details;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -54,6 +55,20 @@ class PersonalDetails extends Controller
         $details->m_occupation = $request->mocc;
         $details->annual_income = $request->annsal;
         $details->save();
+        return view('home');
+    }
+
+    public function edudetails(Request $request,Response $response){
+        $edu = new education_details();
+        
+        $id = Auth::user()->id;
+        $edu->user_id = $id;
+        $edu->ssc_percantage = $request->ssc;
+        $edu->hsc_percantage = $request->hsc;
+        $edu->diploma = $request->diploma;
+        $edu->degree_overall = $request->degree;
+        
+        $edu->save();
         return view('home');
     }
 }
