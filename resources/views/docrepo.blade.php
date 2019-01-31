@@ -278,7 +278,8 @@
                                                         <div class="card">
                                                           <div class="card-body">
                                                             <h4 class="card-title">Document Repo</h4>
-                                                            <form class="form-sample">
+                                                          <form class="form-sample" enctype="multipart/form-data" method="POST" action="{{route('upload')}}">
+                                                          @csrf
                                                               <p class="card-description">
                                                                 Data
                                                               </p>
@@ -288,7 +289,7 @@
                                                                     <label class="col-sm-3 col-form-label">Document</label>
                                                                     <div class="col-sm-9">
                                                                             <div class="input-group col-xs-12">
-                                                                                    <input type="file" name="file">
+                                                                                    <input type="file" name="pdf">
                                                                                   </div>
                                                                     </div>
                                                                   </div>

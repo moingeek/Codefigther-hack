@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/personal-half','half');
 Route::post('personal-half','PersonalDetails@halfdetails')->name('half');
 Route::view('/dashboard','dashboard');
+
 Route::view('/personal-full','personal');
 Route::post('personal-full','PersonalDetails@fulldetails')->name('full');
 Route::view('/doc-repo','docrepo');
+Route::post('/doc-repo','Document@uploader')->name('upload');
