@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\User;
 use DB;
+use App\personal_details;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -37,5 +38,22 @@ class PersonalDetails extends Controller
             ]);
             return view('home');
         }
+    }
+
+    public function fulldetails(Request $request,Response $response){
+        $details = new personal_details();
+        $details->address = $request->address;
+        $id = Auth::user()->id;
+        $details->user_id = $id;
+        $details->account_no = $request->account;
+        $details->father_name = $request->father;
+        $details->mother_name = $request->mother;
+        $details->f_salary = $request->fsal;
+        $details->m_salary = $request->msal;
+        $details->f_occupation = $request->focc;
+        $details->m_occupation = $request->mocc;
+        $details->annual_income = $request->annsal;
+        $details->save();
+        return view('home');
     }
 }
