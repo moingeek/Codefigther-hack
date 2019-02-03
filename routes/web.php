@@ -30,3 +30,5 @@ Route::view('/edu-details','edu_details');
 Route::post('/edu-details','PersonalDetails@edudetails')->name('edu');
 Route::view('/apply-scho','applyScholarship');
 Route::view('/applied-scho','appliedScholarship');
+Route::view('/notify','notify');
+Route::post('/notify','Dashboard@notifiy')->name('notify');
